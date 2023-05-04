@@ -32,7 +32,12 @@ To start the client, run:
 
 ./client
 
-Once you have started the client, you can use the following commands:
+Once you have started the client,
+first youll need to auth yourself. 
+username: user1
+password: password1
+in auth.txt you can add another username and passwords.
+you can use the following commands:
 
 - `1`: list the contents of the server's directory.
 - `2`: download a file from the server.

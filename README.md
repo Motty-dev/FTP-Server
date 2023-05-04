@@ -34,8 +34,10 @@ To start the client, run:
 
 Once you have started the client,
 first youll need to auth yourself. 
+
 username: user1
 password: password1
+
 in auth.txt you can add another username and passwords.
 you can use the following commands:
 

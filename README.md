@@ -48,7 +48,7 @@ you can use the following commands:
 
 ## Logging
 
-The server maintains a log of all connections, login attempts, and file transfers in the `ftp_server.log` file.
+The server maintains a log of all connections, login attempts, and file transfers in the `server.log` file.
 
 ## Cleaning up
 

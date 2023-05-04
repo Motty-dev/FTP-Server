@@ -1,0 +1,91 @@
+[2023-05-02 12:05:24] Failed login attempt - User: user4
+[2023-05-02 12:05:24] Client authentication failed
+[2023-05-02 12:15:40] Successful login attempt - User: user1
+[2023-05-02 12:15:40] Client authenticated
+[2023-05-02 12:38:50] Failed login attempt - User: 
+[2023-05-02 12:39:16] Failed login attempt - User: 
+[2023-05-02 13:00:51] Failed login attempt - User: 
+[2023-05-02 19:25:57] Failed login attempt - User: 
+[2023-05-02 20:01:44] Failed login attempt - User: 
+[2023-05-02 20:11:01] Failed login attempt - User: 
+[2023-05-02 20:22:52] Failed login attempt - User: 
+[2023-05-02 20:26:03] Failed login attempt - User: motty
+[2023-05-02 20:26:21] Successful login attempt - User: user1
+[2023-05-02 20:26:21] Client authenticated
+[2023-05-02 20:32:12] Failed login attempt - User: test
+[2023-05-02 20:32:22] Successful login attempt - User: user2
+[2023-05-02 20:32:22] Client authenticated
+[2023-05-02 20:32:43] File uploaded: auth.txt
+[2023-05-03 12:50:33] Successful login attempt - User: user1
+[2023-05-03 12:50:33] Client authenticated
+[2023-05-03 14:30:50] Failed login attempt - User: testt
+[2023-05-03 14:31:08] Failed login attempt - User: user1
+[2023-05-03 14:31:29] Failed login attempt - User: user1
+[2023-05-03 14:32:07] Failed login attempt - User: test
+[2023-05-03 14:32:13] Successful login attempt - User: user1
+[2023-05-03 14:32:13] Client authenticated
+[2023-05-03 14:56:14] Failed login attempt - User: test
+[2023-05-03 14:56:22] Successful login attempt - User: user1
+[2023-05-03 14:56:22] Client authenticated
+[2023-05-03 15:36:28] Failed login attempt - User: user1
+[2023-05-03 15:37:27] Failed login attempt - User: user1
+[2023-05-03 15:38:16] Failed login attempt - User: userr
+[2023-05-03 15:38:35] Successful login attempt - User: user1
+[2023-05-03 15:38:35] Client authenticated
+[2023-05-03 15:40:21] Successful login attempt - User: user1
+[2023-05-03 15:40:21] Client authenticated
+[2023-05-03 15:57:38] Failed login attempt - User: user1
+[2023-05-03 15:58:05] Successful login attempt - User: user1
+[2023-05-03 15:58:05] Client authenticated
+[2023-05-03 16:18:46] Failed login attempt - User: motty
+[2023-05-03 16:18:52] Successful login attempt - User: user2
+[2023-05-03 16:18:52] Client authenticated
+[2023-05-03 16:41:20] Successful login attempt - User: user1
+[2023-05-03 16:41:20] Client authenticated
+[2023-05-03 16:47:04] Successful login attempt - User: user1
+[2023-05-03 16:47:04] Client authenticated
+[2023-05-04 00:54:36] Successful login attempt - User: user1
+[2023-05-04 00:54:36] Client authenticated
+[2023-05-04 01:16:44] Successful login attempt - User: user1
+[2023-05-04 01:16:44] Client authenticated
+[2023-05-04 01:17:01] Successful login attempt - User: user2
+[2023-05-04 01:17:01] Client authenticated
+[2023-05-04 01:24:11] Successful login attempt - User: user1
+[2023-05-04 01:24:11] Client authenticated
+[2023-05-04 01:29:33] Successful login attempt - User: user1
+[2023-05-04 01:29:33] Client authenticated
+[2023-05-04 01:44:15] Failed login attempt - User: user1
+[2023-05-04 01:44:56] Successful login attempt - User: user1
+[2023-05-04 01:44:56] Client authenticated
+[2023-05-04 01:45:34] Successful login attempt - User: user1
+[2023-05-04 01:45:34] Client authenticated
+[2023-05-04 01:46:39] Successful login attempt - User: user1
+[2023-05-04 01:46:39] Client authenticated
+[2023-05-04 12:31:35] Successful login attempt - User: user1
+[2023-05-04 12:31:35] Client authenticated
+[2023-05-04 12:32:00] Successful login attempt - User: user1
+[2023-05-04 12:32:00] Client authenticated
+[2023-05-04 12:34:57] Successful login attempt - User: user1
+[2023-05-04 12:34:57] Client authenticated
+[2023-05-04 12:41:01] Successful login attempt - User: user1
+[2023-05-04 12:41:01] Client authenticated
+[2023-05-04 12:43:39] Successful login attempt - User: user1
+[2023-05-04 12:43:39] Client authenticated
+[2023-05-04 12:45:21] Successful login attempt - User: user1
+[2023-05-04 12:45:21] Client authenticated
+[2023-05-04 12:47:54] Successful login attempt - User: user1
+[2023-05-04 12:47:54] Client authenticated
+[2023-05-04 12:50:21] Successful login attempt - User: user1
+[2023-05-04 12:50:21] Client authenticated
+[2023-05-04 13:28:09] Successful login attempt - User: user1
+[2023-05-04 13:28:09] Client authenticated
+[2023-05-04 13:29:47] Successful login attempt - User: user1
+[2023-05-04 13:29:47] Client authenticated
+[2023-05-04 13:32:16] Successful login attempt - User: user1
+[2023-05-04 13:32:16] Client authenticated
+[2023-05-04 13:33:23] Successful login attempt - User: user1
+[2023-05-04 13:33:23] Client authenticated
+[2023-05-04 13:34:34] Successful login attempt - User: user1
+[2023-05-04 13:34:34] Client authenticated
+[2023-05-04 13:35:01] Successful login attempt - User: user1
+[2023-05-04 13:35:01] Client authenticated

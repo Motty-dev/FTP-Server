@@ -13,7 +13,7 @@
 #include "client_operations.h"
 
 #define SERVER_IP "127.0.0.1"
-#define PORT 8080
+#define PORT 8081
 
 int main() {
     int client_fd;

@@ -21,9 +21,14 @@ void handle_client_commands(int client_fd) {
         if (strcmp(buffer, "list\n") == 0) {
             send_directory_listing(client_fd);
         } else if (strncmp(buffer, "upload ", 7) == 0) {
-            char *filename = strtok(buffer + 7, "\n");
+            char *filename = strtok(buffer + 7, " ");
             if (filename) {
-                receive_file(client_fd, filename);
+                long int file_size;
+                char *file_size_str = strtok(NULL, " ");
+                if (file_size_str) {
+                    file_size = strtol(file_size_str, NULL, 10);
+                    receive_file(client_fd, filename, file_size);
+                }
             }
         } else if (strncmp(buffer, "download ", 9) == 0) {
             char *filename = strtok(buffer + 9, "\n");
@@ -39,61 +44,57 @@ void handle_client_commands(int client_fd) {
 void send_directory_listing(int client_fd) {
     DIR *dir;
     struct dirent *entry;
-    char buffer[MAX_BUF_SIZE];
+    char data[MAX_BUF_SIZE];
+    const char *directory_path = "server_files"; // Set the directory path
 
-    dir = opendir("server_files");
-    if (dir == NULL) {
-        perror("Error opening directory");
-        return;
-    }
+    memset(data, 0, sizeof(data));
 
-    int file_count = 0;
-    while ((entry = readdir(dir)) != NULL) {
-        if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) {
-            snprintf(buffer, sizeof(buffer), "%s\n", entry->d_name);
-            send(client_fd, buffer, strlen(buffer), 0);
-            file_count++;
+    dir = opendir(directory_path);
+    if (dir != NULL) {
+        while ((entry = readdir(dir)) != NULL) {
+            if (entry->d_type == DT_REG) {
+                strncat(data, entry->d_name, sizeof(data) - strlen(data) - 1);
+                strncat(data, "\n", sizeof(data) - strlen(data) - 1);
+            }
         }
+        closedir(dir);
     }
 
-    if (file_count == 0) {
-        snprintf(buffer, sizeof(buffer), "No files yet.\n");
-        send(client_fd, buffer, strlen(buffer), 0);
+    if (strlen(data) == 0) {
+        strncpy(data, "No files yet.\n", sizeof(data) - 1);
     }
-
-    closedir(dir);
-    snprintf(buffer, sizeof(buffer), "\n"); // Send an extra newline character
-    send(client_fd, buffer, strlen(buffer), 0);
-
-    char confirmation[MAX_BUF_SIZE];
-    recv(client_fd, confirmation, sizeof(confirmation) - 1, 0);
+    
+    strncat(data, "END\n", sizeof(data) - strlen(data) - 1);
+    send(client_fd, data, strlen(data), 0);
 }
 
-void receive_file(int client_fd, const char *filename) {
-    int file_fd;
+void receive_file(int client_fd, const char *filename, long int file_size) {
     char buffer[MAX_BUF_SIZE];
-    ssize_t bytes_received;
+    FILE *file;
+    size_t bytes_received;
+    char file_path[MAX_BUF_SIZE];
+    long int bytes_total = 0;
 
-    char server_file_path[MAX_BUF_SIZE];
-    snprintf(server_file_path, sizeof(server_file_path), "server_files/%s", filename);
+    snprintf(file_path, sizeof(file_path), "server_files/%s", filename); // Save the file in the server_files directory
 
-    file_fd = open(server_file_path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-    if (file_fd == -1) {
-        perror("Error opening file for upload");
-        return;
+    file = fopen(file_path, "wb");
+    if (file != NULL) {
+        while (bytes_total < file_size) {
+            memset(buffer, 0, sizeof(buffer));
+            bytes_received = recv(client_fd, buffer, sizeof(buffer), 0);
+            if (bytes_received > 0) {
+                fwrite(buffer, 1, bytes_received, file);
+                bytes_total += bytes_received;
+            }
+        }
+        fclose(file);
+    } else {
+        perror("Error opening file for writing");
     }
 
-    // Receive the file size
-    long int file_size;
-    recv(client_fd, &file_size, sizeof(long int), 0);
-
-    while (file_size > 0 && (bytes_received = recv(client_fd, buffer, MAX_BUF_SIZE, 0)) > 0) {
-        write(file_fd, buffer, bytes_received);
-        file_size -= bytes_received;
-    }
-
-    close(file_fd);
-    log_message("File uploaded: %s", filename);
+    // Send a confirmation message after the file is uploaded
+    snprintf(buffer, sizeof(buffer), "File uploaded: %s\n", filename);
+    send(client_fd, buffer, strlen(buffer), 0);
 }
 
 void send_file(int client_fd, const char *filename) {

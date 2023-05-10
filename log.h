@@ -5,4 +5,4 @@
 
 void log_message(const char *format, ...);
 
-#endif // LOG_H
+#endif

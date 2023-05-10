@@ -7,4 +7,4 @@ void receive_directory_listing(int client_fd);
 void send_file(int client_fd, char* filename);
 void receive_file(int client_fd, char* filename);
 
-#endif /* CLIENT_OPERATIONS_H */
+#endif

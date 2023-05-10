@@ -98,35 +98,33 @@ void show_menu_and_handle_commands(int client_fd) {
 }
 
 void receive_directory_listing(int client_fd) {
-    char buffer[MAX_BUF_SIZE];
+    char data[MAX_BUF_SIZE];
     ssize_t bytes_received;
     int file_count = 0;
 
     printf("\nFiles on the server:\n");
-    while (1) {
-        bytes_received = recv(client_fd, buffer, sizeof(buffer) - 1, 0);
-        if (bytes_received <= 0) {
-            perror("Error receiving data from server");
-            break;
+
+    // Receive the file list
+    bytes_received = recv(client_fd, data, sizeof(data) - 1, 0);
+    if (bytes_received > 0) {
+        data[bytes_received] = '\0';
+        char *file_name = strtok(data, "\n");
+
+        while (file_name != NULL) {
+            if (strcmp(file_name, "END") != 0) {
+                printf("%s\n", file_name);
+                file_count++;
+            } else {
+                break;
+            }
+            file_name = strtok(NULL, "\n");
         }
-
-        buffer[bytes_received] = '\0';
-
-        if (strcmp(buffer, "\n") == 0) {
-            break;
-        }
-
-        printf("%s", buffer);
-        file_count++;
     }
 
     if (file_count == 0) {
         printf("No files yet.\n");
     }
-
-    send(client_fd, "List received\n", 14, 0);
 }
-
 
 void send_file(int client_fd, char* filename) {
     int file_fd;
@@ -142,10 +140,9 @@ void send_file(int client_fd, char* filename) {
 
     fstat(file_fd, &file_stat);
 
-    // Send the filename and file size
-    send(client_fd, filename, strlen(filename), 0);
-    send(client_fd, " ", 1, 0);
-    send(client_fd, &file_stat.st_size, sizeof(file_stat.st_size), 0);
+    // Send the "upload" command, filename, and file size
+    snprintf(buffer, sizeof(buffer), "upload %s %lld", filename, file_stat.st_size);
+    send(client_fd, buffer, strlen(buffer), 0);
 
     while ((bytes_read = read(file_fd, buffer, sizeof(buffer))) > 0) {
         bytes_written = write(client_fd, buffer, bytes_read);
@@ -156,10 +153,15 @@ void send_file(int client_fd, char* filename) {
     }
 
     close(file_fd);
-    printf("File uploaded: %s\n", filename);
 
+    // Receive confirmation message
     char confirmation[MAX_BUF_SIZE];
-    recv(client_fd, confirmation, sizeof(confirmation) - 1, 0);
+    ssize_t bytes_received;
+    bytes_received = recv(client_fd, confirmation, sizeof(confirmation) - 1, 0);
+    if (bytes_received > 0) {
+        confirmation[bytes_received] = '\0';
+        printf("%s", confirmation);
+    }
 }
 
 void receive_file(int client_fd, char* filename) {

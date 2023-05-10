@@ -9,7 +9,7 @@
 #include <unistd.h>
 #include "client_handler.h"
 
-#define PORT 8080
+#define PORT 8081
 #define MAX_CONNECTIONS 10
 
 int main() {

@@ -89,3 +89,42 @@
 [2023-05-04 13:34:34] Client authenticated
 [2023-05-04 13:35:01] Successful login attempt - User: user1
 [2023-05-04 13:35:01] Client authenticated
+[2023-05-10 14:49:12] Successful login attempt - User: user1
+[2023-05-10 14:49:12] Client authenticated
+[2023-05-10 14:50:54] File uploaded: auth.txt
+[2023-05-10 14:51:02] Successful login attempt - User: user1
+[2023-05-10 14:51:02] Client authenticated
+[2023-05-10 14:53:06] File downloaded: auth.txt
+[2023-05-10 15:05:45] Failed login attempt - User: user1
+[2023-05-10 15:06:07] Successful login attempt - User: user1
+[2023-05-10 15:06:07] Client authenticated
+[2023-05-10 15:08:13] Successful login attempt - User: user1
+[2023-05-10 15:08:13] Client authenticated
+[2023-05-10 15:08:39] Successful login attempt - User: user1
+[2023-05-10 15:08:39] Client authenticated
+[2023-05-10 15:10:47] Successful login attempt - User: user1
+[2023-05-10 15:10:47] Client authenticated
+[2023-05-10 15:16:00] Successful login attempt - User: user1
+[2023-05-10 15:16:00] Client authenticated
+[2023-05-10 15:23:26] Successful login attempt - User: user1
+[2023-05-10 15:23:26] Client authenticated
+[2023-05-10 15:27:18] Successful login attempt - User: user1
+[2023-05-10 15:27:18] Client authenticated
+[2023-05-10 15:28:23] File uploaded: auth.txt
+[2023-05-10 15:28:30] Successful login attempt - User: user1
+[2023-05-10 15:28:30] Client authenticated
+[2023-05-10 15:35:40] Successful login attempt - User: user1
+[2023-05-10 15:35:40] Client authenticated
+[2023-05-10 15:42:43] Successful login attempt - User: user1
+[2023-05-10 15:42:43] Client authenticated
+[2023-05-10 15:47:08] Client disconnected
+[2023-05-10 15:47:32] Successful login attempt - User: user1
+[2023-05-10 15:47:32] Client authenticated
+[2023-05-10 15:53:34] Client disconnected
+[2023-05-10 15:53:42] Successful login attempt - User: user1
+[2023-05-10 15:53:42] Client authenticated
+[2023-05-10 15:55:39] Successful login attempt - User: user1
+[2023-05-10 15:55:39] Client authenticated
+[2023-05-10 16:03:53] Successful login attempt - User: user1
+[2023-05-10 16:03:53] Client authenticated
+[2023-05-10 16:04:46] File downloaded: up.txt

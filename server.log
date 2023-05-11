@@ -128,3 +128,19 @@
 [2023-05-10 16:03:53] Successful login attempt - User: user1
 [2023-05-10 16:03:53] Client authenticated
 [2023-05-10 16:04:46] File downloaded: up.txt
+[2023-05-11 11:54:09] Failed login attempt - User: user1
+[2023-05-11 11:54:15] Successful login attempt - User: user1
+[2023-05-11 11:54:15] Client authenticated
+[2023-05-11 11:54:27] File downloaded: ttt.txt
+[2023-05-11 12:03:15] Successful login attempt - User: user1
+[2023-05-11 12:03:15] Client authenticated
+[2023-05-11 12:03:25] File downloaded: ttt.txt
+[2023-05-11 12:33:18] Successful login attempt - User: user1
+[2023-05-11 12:33:18] Client authenticated
+[2023-05-11 12:33:26] File downloaded: ttt.txt
+[2023-05-11 12:34:02] Successful login attempt - User: user1
+[2023-05-11 12:34:02] Client authenticated
+[2023-05-11 12:34:34] File downloaded: server.log
+[2023-05-11 12:34:43] File downloaded: ttt.txt
+[2023-05-11 12:35:32] Successful login attempt - User: user1
+[2023-05-11 12:35:32] Client authenticated

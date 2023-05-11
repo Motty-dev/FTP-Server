@@ -166,19 +166,23 @@ void send_file(int client_fd, char* filename) {
 
 void receive_file(int client_fd, char* filename) {
     int file_fd;
-    struct stat file_stat;
     char buffer[MAX_BUF_SIZE];
     ssize_t bytes_read, bytes_written;
 
-    recv(client_fd, &file_stat, sizeof(file_stat), 0);
+    // Receive file size as long int
+    long int file_size;
+    recv(client_fd, &file_size, sizeof(long int), 0);
 
-    file_fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    char file_path[MAX_BUF_SIZE];
+    snprintf(file_path, sizeof(file_path), "downloded_files/%s", filename);
+    file_fd = open(file_path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+
     if (file_fd == -1) {
         perror("Error opening file for download");
         return;
     }
 
-    while (file_stat.st_size > 0) {
+    while (file_size > 0) {
         bytes_read = read(client_fd, buffer, sizeof(buffer));
         if (bytes_read == -1) {
             perror("Error receiving file");
@@ -189,12 +193,9 @@ void receive_file(int client_fd, char* filename) {
             perror("Error writing file");
             break;
         }
-        file_stat.st_size -= bytes_read;
+        file_size -= bytes_read;
     }
 
     close(file_fd);
     printf("File downloaded: %s\n", filename);
-
-    char confirmation[MAX_BUF_SIZE];
-    recv(client_fd, confirmation, sizeof(confirmation) - 1, 0);
 }
